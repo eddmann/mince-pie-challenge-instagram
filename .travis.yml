@@ -1,0 +1,8 @@
+sudo: required
+
+services:
+  - docker
+
+script:
+  - docker run --shm-size 1G --rm -v $TRAVIS_BUILD_DIR:/app alekzonder/puppeteer:latest npm install
+  - docker run --shm-size 1G --rm -v $TRAVIS_BUILD_DIR:/app alekzonder/puppeteer:latest npm test
